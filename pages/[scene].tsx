@@ -36,7 +36,16 @@ export default function ScenePage({ initialCharacters, sceneId }: ScenePageProps
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticPaths = async () => {
+  return {
+    paths: [
+      { params: { scene: 'main' } }
+    ],
+    fallback: false
+  };
+};
+
+export const getStaticProps: GetServerSideProps = async (context) => {
   const sceneId = context.params?.scene as string;
 
   try {

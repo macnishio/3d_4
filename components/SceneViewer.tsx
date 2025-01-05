@@ -1,48 +1,51 @@
+
+'use client';
+
 import React, { useEffect, useRef } from 'react';
-import { Engine, Scene } from '@babylonjs/core';
-import { useSceneSetup } from '../hooks/useSceneSetup';
-import { Character, CharacterType } from '../models/characters';
+import dynamic from 'next/dynamic';
+import { Character } from '../models/characters';
 
 interface SceneViewerProps {
   characters: Character[];
-  onCharacterClick?: (character: Character) => void;
+  sceneId: string;
 }
 
-const SceneViewer: React.FC<SceneViewerProps> = ({ characters, onCharacterClick }) => {
+const SceneViewer: React.FC<SceneViewerProps> = ({ characters, sceneId }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { initScene, addCharacter, setupInteractions } = useSceneSetup();
 
   useEffect(() => {
     if (!canvasRef.current) return;
 
-    const engine = new Engine(canvasRef.current, true);
-    const scene = new Scene(engine);
-    
-    initScene(scene);
+    const initScene = async () => {
+      const { Engine, Scene } = await import('@babylonjs/core');
+      const { useSceneSetup } = await import('../hooks/useSceneSetup');
+      
+      const engine = new Engine(canvasRef.current, true);
+      const scene = new Scene(engine);
+      
+      const { initScene, handleCharacterClick, optimizePerformance } = useSceneSetup({
+        canvas: canvasRef.current,
+        characters
+      });
 
-    characters.forEach(character => {
-      addCharacter(scene, character);
-    });
+      engine.runRenderLoop(() => {
+        scene.render();
+      });
 
-    setupInteractions(scene, (character) => {
-      onCharacterClick?.(character);
-    });
+      const handleResize = () => {
+        engine.resize();
+      };
 
-    engine.runRenderLoop(() => {
-      scene.render();
-    });
+      window.addEventListener('resize', handleResize);
 
-    const handleResize = () => {
-      engine.resize();
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        engine.dispose();
+      };
     };
 
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      engine.dispose();
-    };
-  }, [characters, onCharacterClick]);
+    initScene();
+  }, [characters, sceneId]);
 
   return (
     <canvas
@@ -57,4 +60,6 @@ const SceneViewer: React.FC<SceneViewerProps> = ({ characters, onCharacterClick 
   );
 };
 
-export default SceneViewer;
+export default dynamic(() => Promise.resolve(SceneViewer), {
+  ssr: false
+});
