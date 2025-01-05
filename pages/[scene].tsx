@@ -1,8 +1,13 @@
-import { GetServerSideProps } from 'next';
+
+import { GetStaticProps, GetStaticPaths } from 'next';
 import { useEffect, useState } from 'react';
-import SceneViewer from '../components/SceneViewer';
-import { fetchCharacters } from '../lib/api/characterApi';
+import dynamic from 'next/dynamic';
 import { Character } from '../models/characters';
+import { fetchCharacters } from '../lib/api/characterApi';
+
+const SceneViewer = dynamic(() => import('../components/SceneViewer'), {
+  ssr: false
+});
 
 interface ScenePageProps {
   initialCharacters: Character[];
@@ -36,7 +41,7 @@ export default function ScenePage({ initialCharacters, sceneId }: ScenePageProps
   );
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
       { params: { scene: 'main' } }
@@ -45,8 +50,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetServerSideProps = async (context) => {
-  const sceneId = context.params?.scene as string;
+export const getStaticProps: GetStaticProps<ScenePageProps> = async ({ params }) => {
+  const sceneId = params?.scene as string;
 
   try {
     const initialCharacters = await fetchCharacters(sceneId);
@@ -55,10 +60,11 @@ export const getStaticProps: GetServerSideProps = async (context) => {
         initialCharacters,
         sceneId,
       },
+      revalidate: 60
     };
   } catch (error) {
     return {
-      notFound: true,
+      notFound: true
     };
   }
 };
