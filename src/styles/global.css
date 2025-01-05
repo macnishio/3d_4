@@ -1,0 +1,79 @@
+/* src/styles/global.css */
+:root {
+  --primary-background: #f4f4f4;
+  --secondary-background: #ffffff;
+  --text-color: #333333;
+  --accent-color: #4a90e2;
+  --modal-background: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--primary-background);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.scene-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--secondary-background);
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .scene-container {
+    height: 100vh;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .scene-container {
+    height: 100dvh;
+  }
+
+  .modal-content {
+    width: 100%;
+    border-radius: 0;
+  }
+};

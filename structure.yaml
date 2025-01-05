@@ -1,0 +1,83 @@
+以下に、3Dオフィスシーンビューアプロジェクトの実装に基づいたYAML構造を提案します：
+
+```yaml
+src:
+  structure.yaml:
+    content: |-
+      3Dオフィスシーンビューアプロジェクト
+      - Next.js + Babylon.js
+      - TypeScriptベース
+      - サーバーサイドレンダリングと3Dインタラクション
+      - マルチモーダル3Dオフィス体験
+      
+      主要機能:
+      - インタラクティブな3Dキャラクター
+      - リアルタイムシーン管理
+      - サーバーサイドレンダリング
+      - レスポンシブデザイン
+      
+      技術スタック:
+      - フロントエンド: Next.js, TypeScript
+      - 3Dレンダリング: Babylon.js
+      - ステート管理: React Hooks
+      - スタイリング: CSS Variables
+      
+      agent選定理由: 
+      - claude-3-5-sonnetは複雑な3Dインタラクションと
+        サーバーサイドレンダリングの実装に最適
+    dependency: 
+      - babylon.js
+      - next.js
+      - typescript
+    agent: "claude-3-5-sonnet-20241022"
+    api: []
+
+  components:
+    SceneViewer.tsx:
+      content: |-
+        Babylon.jsを使用した3Dシーンコンポーネント
+        - 3Dシーン初期化
+        - キャラクター配置
+        - インタラクション実装
+        - パフォーマンス最適化
+        
+        主要機能:
+        - エンジン初期化
+        - シーンレンダリング
+        - キャラクターイベント管理
+        
+        agent選定理由:
+        - 高度な3Dレンダリングと
+          インタラクション処理に最適
+      dependency:
+        - src/hooks/useSceneSetup.ts
+        - src/models/characters.ts
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+    WhiteboardModal.tsx:
+      content: |-
+        メッセージ表示モーダルコンポーネント
+        - 動的テキスト表示
+        - レスポンシブデザイン
+        - アクセシビリティ対応
+        
+        主要機能:
+        - モーダル開閉管理
+        - テキストスクロール
+        - イベントハンドリング
+        
+        agent選定理由:
+        - UIコンポーネントの複雑な
+          状態管理に最適
+      dependency: 
+        - src/styles/modal.css
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+
+  hooks:
+    useSceneSetup.ts:
+      content: |-
+        3Dシーン設定カスタムフック
+        - Babylon.jsシーン管理
+        - パフォーマンス最適化
