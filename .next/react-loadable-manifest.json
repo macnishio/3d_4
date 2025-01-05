@@ -1,0 +1,20 @@
+{
+  "components/SceneViewer.tsx -> ../hooks/useSceneSetup": {
+    "id": "components/SceneViewer.tsx -> ../hooks/useSceneSetup",
+    "files": [
+      "static/chunks/hooks_useSceneSetup_ts.js"
+    ]
+  },
+  "components/SceneViewer.tsx -> @babylonjs/core": {
+    "id": "components/SceneViewer.tsx -> @babylonjs/core",
+    "files": [
+      "static/chunks/node_modules_babylonjs_core_index_js.js"
+    ]
+  },
+  "pages/[scene].tsx -> ../components/SceneViewer": {
+    "id": "pages/[scene].tsx -> ../components/SceneViewer",
+    "files": [
+      "static/chunks/components_SceneViewer_tsx.js"
+    ]
+  }
+}
