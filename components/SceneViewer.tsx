@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
+import { useSceneSetup } from '../hooks/useSceneSetup';
 import { Character } from '../models/characters';
 
 interface SceneViewerProps {
@@ -12,40 +12,15 @@ interface SceneViewerProps {
 
 const SceneViewer: React.FC<SceneViewerProps> = ({ characters, sceneId }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { scene, isLoading, handleCharacterClick, optimizePerformance } = useSceneSetup({
+    canvas: canvasRef.current,
+    characters
+  });
 
   useEffect(() => {
     if (!canvasRef.current) return;
-
-    const initScene = async () => {
-      const { Engine, Scene } = await import('@babylonjs/core');
-      const { useSceneSetup } = await import('../hooks/useSceneSetup');
-      
-      const engine = new Engine(canvasRef.current, true);
-      const scene = new Scene(engine);
-      
-      const { initScene, handleCharacterClick, optimizePerformance } = useSceneSetup({
-        canvas: canvasRef.current,
-        characters
-      });
-
-      engine.runRenderLoop(() => {
-        scene.render();
-      });
-
-      const handleResize = () => {
-        engine.resize();
-      };
-
-      window.addEventListener('resize', handleResize);
-
-      return () => {
-        window.removeEventListener('resize', handleResize);
-        engine.dispose();
-      };
-    };
-
-    initScene();
-  }, [characters, sceneId]);
+    optimizePerformance();
+  }, [characters, sceneId, optimizePerformance]);
 
   return (
     <canvas
@@ -60,6 +35,4 @@ const SceneViewer: React.FC<SceneViewerProps> = ({ characters, sceneId }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(SceneViewer), {
-  ssr: false
-});
+export default SceneViewer;

@@ -8,10 +8,10 @@ interface SceneSetupOptions {
 }
 
 export const useSceneSetup = ({ canvas, characters }: SceneSetupOptions) => {
-  const engineRef = useRef<Engine | null>(null);
-  const sceneRef = useRef<Scene | null>(null);
-  const meshesRef = useRef<AbstractMesh[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const engineRef = React.useRef<Engine | null>(null);
+  const sceneRef = React.useRef<Scene | null>(null);
+  const meshesRef = React.useRef<AbstractMesh[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   useEffect(() => {
     if (!canvas) return;
