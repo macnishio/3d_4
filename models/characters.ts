@@ -1,3 +1,4 @@
+
 export interface Character {
   id: string;
   name: string;
@@ -151,4 +152,17 @@ export const defaultCharacters: Record<CharacterRole, Character> = {
     interactionZone: {
       radius: 2.5,
       height: 3.5,
-      trig
+      triggerDistance: 2
+    },
+    metadata: {
+      description: 'Team mentor and advisor',
+      dialogues: [
+        { id: 'd1', text: 'Need any guidance?' }
+      ],
+      availability: {
+        workDays: [1, 2, 3, 4, 5],
+        workHours: { start: 10, end: 16 }
+      }
+    }
+  }
+};
