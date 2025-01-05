@@ -4,9 +4,6 @@ const nextConfig = {
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: false
-  },
-  experimental: {
-    appDir: false
   }
 }
 
