@@ -1,4 +1,4 @@
-import { Scene, Engine, Vector3, MeshBuilder, StandardMaterial, Texture, HemisphericLight, DirectionalLight } from '@babylonjs/core';
+import { Scene, Engine, Vector3, MeshBuilder, StandardMaterial, Texture, HemisphericLight, DirectionalLight, ArcRotateCamera } from '@babylonjs/core';
 
 export const createBasicMesh = (scene: Scene, type: string, options: any) => {
   switch (type) {
@@ -35,6 +35,14 @@ export const optimizeScene = (scene: Scene) => {
   scene.autoClear = false;
   scene.autoClearDepthAndStencil = false;
   scene.blockMaterialDirtyMechanism = true;
+};
+
+export const configureCamera = (scene: Scene, canvas: HTMLCanvasElement) => {
+  const camera = new ArcRotateCamera("camera", 0, Math.PI / 3, 10, Vector3.Zero(), scene);
+  camera.attachControl(canvas, true);
+  camera.lowerRadiusLimit = 5;
+  camera.upperRadiusLimit = 20;
+  return camera;
 };
 
 export const loadTexture = async (scene: Scene, path: string): Promise<Texture> => {
