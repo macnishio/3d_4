@@ -61,9 +61,24 @@ export const disposeResources = (resources: any[]) => {
   });
 };
 
+import { SceneLoader } from '@babylonjs/core';
+import '@babylonjs/loaders/glTF';
+
 export const setupMeshes = async (scene: Scene, characters: any[]) => {
   const meshes: AbstractMesh[] = [];
   
+  // Load furniture models
+  try {
+    const tableResult = await SceneLoader.ImportMeshAsync("", "attached_assets/", "table.glb", scene);
+    const chairResult = await SceneLoader.ImportMeshAsync("", "attached_assets/", "chair.glb", scene);
+    
+    meshes.push(...tableResult.meshes);
+    meshes.push(...chairResult.meshes);
+  } catch (error) {
+    console.error("Error loading GLB models:", error);
+  }
+  
+  // Add character meshes
   for (const character of characters) {
     const mesh = createBasicMesh(scene, 'box', { 
       width: 1,
