@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Scene, Engine, Vector3, AbstractMesh } from '@babylonjs/core';
-import { setupLighting, setupMeshes, configureCamera } from '../lib/sceneUtils';
+import { createLighting, setupMeshes, createCamera } from '../lib/sceneUtils';
 
 interface SceneSetupOptions {
   canvas: HTMLCanvasElement;
@@ -17,27 +17,36 @@ export const useSceneSetup = ({ canvas, characters }: SceneSetupOptions) => {
     if (!canvas) return;
 
     const initScene = async () => {
-      engineRef.current = new Engine(canvas, true, { 
-        preserveDrawingBuffer: true,
-        stencil: true
-      });
+      try {
+        // Create engine and scene
+        engineRef.current = new Engine(canvas, true, { 
+          preserveDrawingBuffer: true,
+          stencil: true
+        });
+        sceneRef.current = new Scene(engineRef.current);
 
-      sceneRef.current = new Scene(engineRef.current);
-      
-      const camera = configureCamera(sceneRef.current, canvas);
-      setupLighting(sceneRef.current);
-      
-      meshesRef.current = await setupMeshes(sceneRef.current, characters);
+        // Setup camera and lighting
+        const camera = createCamera(sceneRef.current, canvas);
+        createLighting(sceneRef.current);
 
-      engineRef.current.runRenderLoop(() => {
-        sceneRef.current?.render();
-      });
+        // Setup meshes
+        meshesRef.current = await setupMeshes(sceneRef.current, characters);
 
-      setIsLoading(false);
+        // Start render loop
+        engineRef.current.runRenderLoop(() => {
+          sceneRef.current?.render();
+        });
+
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Failed to initialize scene:", error);
+        setIsLoading(false);
+      }
     };
 
     initScene();
 
+    // Cleanup
     return () => {
       engineRef.current?.dispose();
       sceneRef.current?.dispose();
