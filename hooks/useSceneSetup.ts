@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Scene, Engine, Vector3, AbstractMesh } from '@babylonjs/core';
-import { createLighting, setupMeshes, configureCamera } from '../lib/sceneUtils';
+import { setupLighting, setupMeshes, configureCamera } from '../lib/sceneUtils';
 
 interface SceneSetupOptions {
   canvas: HTMLCanvasElement;
@@ -25,7 +25,7 @@ export const useSceneSetup = ({ canvas, characters }: SceneSetupOptions) => {
       sceneRef.current = new Scene(engineRef.current);
       
       const camera = configureCamera(sceneRef.current, canvas);
-      createLighting(sceneRef.current);
+      setupLighting(sceneRef.current);
       
       meshesRef.current = await setupMeshes(sceneRef.current, characters);
 
