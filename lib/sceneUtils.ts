@@ -60,3 +60,20 @@ export const disposeResources = (resources: any[]) => {
     }
   });
 };
+
+export const setupMeshes = async (scene: Scene, characters: any[]) => {
+  const meshes: AbstractMesh[] = [];
+  
+  for (const character of characters) {
+    const mesh = createBasicMesh(scene, 'box', { 
+      width: 1,
+      height: 2,
+      depth: 1
+    });
+    mesh.id = character.id;
+    mesh.position = new Vector3(character.position.x, character.position.y, character.position.z);
+    meshes.push(mesh);
+  }
+  
+  return meshes;
+};
