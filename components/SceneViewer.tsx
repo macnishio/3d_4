@@ -4,6 +4,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSceneSetup } from '../hooks/useSceneSetup';
 import { Character } from '../models/characters';
+import '@babylonjs/loaders/glTF';
 
 interface SceneViewerProps {
   characters: Character[];

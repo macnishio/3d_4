@@ -38,7 +38,7 @@ export const optimizeScene = (scene: Scene) => {
 };
 
 export const configureCamera = (scene: Scene, canvas: HTMLCanvasElement) => {
-  const camera = new ArcRotateCamera("camera", 0, Math.PI / 3, 10, Vector3.Zero(), scene);
+  const camera = new ArcRotateCamera("camera", Math.PI / 4, Math.PI / 3, 15, new Vector3(0, 0, 0), scene);
   camera.attachControl(canvas, true);
   camera.lowerRadiusLimit = 5;
   camera.upperRadiusLimit = 20;
@@ -69,8 +69,19 @@ export const setupMeshes = async (scene: Scene, characters: any[]) => {
   
   // Load furniture models
   try {
-    const tableResult = await SceneLoader.ImportMeshAsync("", "/", "table.glb", scene);
-    const chairResult = await SceneLoader.ImportMeshAsync("", "/", "chair.glb", scene);
+    const tableResult = await SceneLoader.ImportMeshAsync("", "./", "table.glb", scene);
+    const chairResult = await SceneLoader.ImportMeshAsync("", "./", "chair.glb", scene);
+    
+    // Position and scale the models
+    if (tableResult.meshes[0]) {
+      tableResult.meshes[0].position.y = 0;
+      tableResult.meshes[0].scaling.scaleInPlace(1);
+    }
+    
+    if (chairResult.meshes[0]) {
+      chairResult.meshes[0].position.set(2, 0, 0);
+      chairResult.meshes[0].scaling.scaleInPlace(1);
+    }
     
     meshes.push(...tableResult.meshes);
     meshes.push(...chairResult.meshes);
