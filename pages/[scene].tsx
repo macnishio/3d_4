@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { Character } from '../models/characters';
 import { fetchCharacters } from '../lib/api/characterApi';
 
-const SceneViewer = dynamic(() => import('../components/SceneViewer').then(mod => mod.default), {
+const SceneViewer = dynamic(() => import('../components/SceneViewer'), {
   ssr: false,
   loading: () => <div>Loading 3D Scene...</div>
 });
