@@ -17,7 +17,7 @@ export const FURNITURE_MODELS: Record<string, FurnitureModel> = {
   OFFICE_CHAIR: {
     id: 'chair1',
     name: 'Office Chair',
-    modelPath: '/models/chair1.glb',
+    modelPath: '/chair.glb',
     scale: { x: 1, y: 1, z: 1 },
     rotation: { x: 0, y: 0, z: 0 },
     defaultPosition: { x: 0, y: 0, z: 0 }
@@ -25,7 +25,7 @@ export const FURNITURE_MODELS: Record<string, FurnitureModel> = {
   DESK_TABLE: {
     id: 'table',
     name: 'Office Table',
-    modelPath: '/models/table.glb',
+    modelPath: '/table.glb',
     scale: { x: 1, y: 1, z: 1 },
     rotation: { x: 0, y: 0, z: 0 },
     defaultPosition: { x: 0, y: 0.5, z: 0 }
