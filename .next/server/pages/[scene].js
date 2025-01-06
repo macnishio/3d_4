@@ -49,7 +49,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ScenePage),\n/* harmony export */   getStaticPaths: () => (/* binding */ getStaticPaths),\n/* harmony export */   getStaticProps: () => (/* binding */ getStaticProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ \"./node_modules/next/dynamic.js\");\n/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _lib_api_characterApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../lib/api/characterApi */ \"./lib/api/characterApi.ts\");\n\n\n\n\nconst SceneViewer = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(()=>__webpack_require__.e(/*! import() */ \"components_SceneViewer_tsx\").then(__webpack_require__.bind(__webpack_require__, /*! ../components/SceneViewer */ \"./components/SceneViewer.tsx\")), {\n    loadableGenerated: {\n        modules: [\n            \"pages/[scene].tsx -> \" + \"../components/SceneViewer\"\n        ]\n    },\n    ssr: false\n});\nfunction ScenePage({ initialCharacters, sceneId }) {\n    const [characters, setCharacters] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(initialCharacters);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        const updateCharacters = async ()=>{\n            try {\n                const updatedCharacters = await (0,_lib_api_characterApi__WEBPACK_IMPORTED_MODULE_3__.fetchCharacters)(sceneId);\n                setCharacters(updatedCharacters);\n            } catch (error) {\n                console.error(\"Failed to update characters:\", error);\n            }\n        };\n        const interval = setInterval(updateCharacters, 30000);\n        return ()=>clearInterval(interval);\n    }, [\n        sceneId\n    ]);\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        style: {\n            width: \"100vw\",\n            height: \"100vh\",\n            overflow: \"hidden\"\n        },\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(SceneViewer, {\n            characters: characters,\n            sceneId: sceneId\n        }, void 0, false, {\n            fileName: \"/home/runner/3d4/pages/[scene].tsx\",\n            lineNumber: 36,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"/home/runner/3d4/pages/[scene].tsx\",\n        lineNumber: 35,\n        columnNumber: 5\n    }, this);\n}\nconst getStaticPaths = async ()=>{\n    return {\n        paths: [\n            {\n                params: {\n                    scene: \"main\"\n                }\n            }\n        ],\n        fallback: false\n    };\n};\nconst getStaticProps = async ({ params })=>{\n    const sceneId = params?.scene;\n    try {\n        const initialCharacters = await (0,_lib_api_characterApi__WEBPACK_IMPORTED_MODULE_3__.fetchCharacters)(sceneId);\n        return {\n            props: {\n                initialCharacters,\n                sceneId\n            },\n            revalidate: 60\n        };\n    } catch (error) {\n        return {\n            notFound: true\n        };\n    }\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9bc2NlbmVdLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7OztBQUU0QztBQUNUO0FBRXVCO0FBRTFELE1BQU1JLGNBQWNGLG1EQUFPQSxDQUFDLElBQU0sd0xBQU87Ozs7OztJQUN2Q0csS0FBSzs7QUFRUSxTQUFTQyxVQUFVLEVBQUVDLGlCQUFpQixFQUFFQyxPQUFPLEVBQWtCO0lBQzlFLE1BQU0sQ0FBQ0MsWUFBWUMsY0FBYyxHQUFHVCwrQ0FBUUEsQ0FBQ007SUFFN0NQLGdEQUFTQSxDQUFDO1FBQ1IsTUFBTVcsbUJBQW1CO1lBQ3ZCLElBQUk7Z0JBQ0YsTUFBTUMsb0JBQW9CLE1BQU1ULHNFQUFlQSxDQUFDSztnQkFDaERFLGNBQWNFO1lBQ2hCLEVBQUUsT0FBT0MsT0FBTztnQkFDZEMsUUFBUUQsS0FBSyxDQUFDLGdDQUFnQ0E7WUFDaEQ7UUFDRjtRQUVBLE1BQU1FLFdBQVdDLFlBQVlMLGtCQUFrQjtRQUMvQyxPQUFPLElBQU1NLGNBQWNGO0lBQzdCLEdBQUc7UUFBQ1A7S0FBUTtJQUVaLHFCQUNFLDhEQUFDVTtRQUFJQyxPQUFPO1lBQUVDLE9BQU87WUFBU0MsUUFBUTtZQUFTQyxVQUFVO1FBQVM7a0JBQ2hFLDRFQUFDbEI7WUFDQ0ssWUFBWUE7WUFDWkQsU0FBU0E7Ozs7Ozs7Ozs7O0FBSWpCO0FBRU8sTUFBTWUsaUJBQWlDO0lBQzVDLE9BQU87UUFDTEMsT0FBTztZQUNMO2dCQUFFQyxRQUFRO29CQUFFQyxPQUFPO2dCQUFPO1lBQUU7U0FDN0I7UUFDREMsVUFBVTtJQUNaO0FBQ0YsRUFBRTtBQUVLLE1BQU1DLGlCQUFpRCxPQUFPLEVBQUVILE1BQU0sRUFBRTtJQUM3RSxNQUFNakIsVUFBVWlCLFFBQVFDO0lBRXhCLElBQUk7UUFDRixNQUFNbkIsb0JBQW9CLE1BQU1KLHNFQUFlQSxDQUFDSztRQUNoRCxPQUFPO1lBQ0xxQixPQUFPO2dCQUNMdEI7Z0JBQ0FDO1lBQ0Y7WUFDQXNCLFlBQVk7UUFDZDtJQUNGLEVBQUUsT0FBT2pCLE9BQU87UUFDZCxPQUFPO1lBQ0xrQixVQUFVO1FBQ1o7SUFDRjtBQUNGLEVBQUUiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8zZC1vZmZpY2Utdmlld2VyLy4vcGFnZXMvW3NjZW5lXS50c3g/OGRiYiJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCB7IEdldFN0YXRpY1Byb3BzLCBHZXRTdGF0aWNQYXRocyB9IGZyb20gJ25leHQnO1xuaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBkeW5hbWljIGZyb20gJ25leHQvZHluYW1pYyc7XG5pbXBvcnQgeyBDaGFyYWN0ZXIgfSBmcm9tICcuLi9tb2RlbHMvY2hhcmFjdGVycyc7XG5pbXBvcnQgeyBmZXRjaENoYXJhY3RlcnMgfSBmcm9tICcuLi9saWIvYXBpL2NoYXJhY3RlckFwaSc7XG5cbmNvbnN0IFNjZW5lVmlld2VyID0gZHluYW1pYygoKSA9PiBpbXBvcnQoJy4uL2NvbXBvbmVudHMvU2NlbmVWaWV3ZXInKSwge1xuICBzc3I6IGZhbHNlXG59KTtcblxuaW50ZXJmYWNlIFNjZW5lUGFnZVByb3BzIHtcbiAgaW5pdGlhbENoYXJhY3RlcnM6IENoYXJhY3RlcltdO1xuICBzY2VuZUlkOiBzdHJpbmc7XG59XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFNjZW5lUGFnZSh7IGluaXRpYWxDaGFyYWN0ZXJzLCBzY2VuZUlkIH06IFNjZW5lUGFnZVByb3BzKSB7XG4gIGNvbnN0IFtjaGFyYWN0ZXJzLCBzZXRDaGFyYWN0ZXJzXSA9IHVzZVN0YXRlKGluaXRpYWxDaGFyYWN0ZXJzKTtcblxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGNvbnN0IHVwZGF0ZUNoYXJhY3RlcnMgPSBhc3luYyAoKSA9PiB7XG4gICAgICB0cnkge1xuICAgICAgICBjb25zdCB1cGRhdGVkQ2hhcmFjdGVycyA9IGF3YWl0IGZldGNoQ2hhcmFjdGVycyhzY2VuZUlkKTtcbiAgICAgICAgc2V0Q2hhcmFjdGVycyh1cGRhdGVkQ2hhcmFjdGVycyk7XG4gICAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgICBjb25zb2xlLmVycm9yKCdGYWlsZWQgdG8gdXBkYXRlIGNoYXJhY3RlcnM6JywgZXJyb3IpO1xuICAgICAgfVxuICAgIH07XG5cbiAgICBjb25zdCBpbnRlcnZhbCA9IHNldEludGVydmFsKHVwZGF0ZUNoYXJhY3RlcnMsIDMwMDAwKTtcbiAgICByZXR1cm4gKCkgPT4gY2xlYXJJbnRlcnZhbChpbnRlcnZhbCk7XG4gIH0sIFtzY2VuZUlkXSk7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IHN0eWxlPXt7IHdpZHRoOiAnMTAwdncnLCBoZWlnaHQ6ICcxMDB2aCcsIG92ZXJmbG93OiAnaGlkZGVuJyB9fT5cbiAgICAgIDxTY2VuZVZpZXdlciBcbiAgICAgICAgY2hhcmFjdGVycz17Y2hhcmFjdGVyc31cbiAgICAgICAgc2NlbmVJZD17c2NlbmVJZH1cbiAgICAgIC8+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmV4cG9ydCBjb25zdCBnZXRTdGF0aWNQYXRoczogR2V0U3RhdGljUGF0aHMgPSBhc3luYyAoKSA9PiB7XG4gIHJldHVybiB7XG4gICAgcGF0aHM6IFtcbiAgICAgIHsgcGFyYW1zOiB7IHNjZW5lOiAnbWFpbicgfSB9XG4gICAgXSxcbiAgICBmYWxsYmFjazogZmFsc2VcbiAgfTtcbn07XG5cbmV4cG9ydCBjb25zdCBnZXRTdGF0aWNQcm9wczogR2V0U3RhdGljUHJvcHM8U2NlbmVQYWdlUHJvcHM+ID0gYXN5bmMgKHsgcGFyYW1zIH0pID0+IHtcbiAgY29uc3Qgc2NlbmVJZCA9IHBhcmFtcz8uc2NlbmUgYXMgc3RyaW5nO1xuXG4gIHRyeSB7XG4gICAgY29uc3QgaW5pdGlhbENoYXJhY3RlcnMgPSBhd2FpdCBmZXRjaENoYXJhY3RlcnMoc2NlbmVJZCk7XG4gICAgcmV0dXJuIHtcbiAgICAgIHByb3BzOiB7XG4gICAgICAgIGluaXRpYWxDaGFyYWN0ZXJzLFxuICAgICAgICBzY2VuZUlkLFxuICAgICAgfSxcbiAgICAgIHJldmFsaWRhdGU6IDYwXG4gICAgfTtcbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbm90Rm91bmQ6IHRydWVcbiAgICB9O1xuICB9XG59O1xuIl0sIm5hbWVzIjpbInVzZUVmZmVjdCIsInVzZVN0YXRlIiwiZHluYW1pYyIsImZldGNoQ2hhcmFjdGVycyIsIlNjZW5lVmlld2VyIiwic3NyIiwiU2NlbmVQYWdlIiwiaW5pdGlhbENoYXJhY3RlcnMiLCJzY2VuZUlkIiwiY2hhcmFjdGVycyIsInNldENoYXJhY3RlcnMiLCJ1cGRhdGVDaGFyYWN0ZXJzIiwidXBkYXRlZENoYXJhY3RlcnMiLCJlcnJvciIsImNvbnNvbGUiLCJpbnRlcnZhbCIsInNldEludGVydmFsIiwiY2xlYXJJbnRlcnZhbCIsImRpdiIsInN0eWxlIiwid2lkdGgiLCJoZWlnaHQiLCJvdmVyZmxvdyIsImdldFN0YXRpY1BhdGhzIiwicGF0aHMiLCJwYXJhbXMiLCJzY2VuZSIsImZhbGxiYWNrIiwiZ2V0U3RhdGljUHJvcHMiLCJwcm9wcyIsInJldmFsaWRhdGUiLCJub3RGb3VuZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/[scene].tsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ScenePage),\n/* harmony export */   getStaticPaths: () => (/* binding */ getStaticPaths),\n/* harmony export */   getStaticProps: () => (/* binding */ getStaticProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dynamic */ \"./node_modules/next/dynamic.js\");\n/* harmony import */ var next_dynamic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dynamic__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _lib_api_characterApi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../lib/api/characterApi */ \"./lib/api/characterApi.ts\");\n\n\n\n\nconst SceneViewer = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(()=>Promise.all(/*! import() */[__webpack_require__.e(\"vendor-chunks/@babylonjs\"), __webpack_require__.e(\"components_SceneViewer_tsx\")]).then(__webpack_require__.bind(__webpack_require__, /*! ../components/SceneViewer */ \"./components/SceneViewer.tsx\")), {\n    loadableGenerated: {\n        modules: [\n            \"pages/[scene].tsx -> \" + \"../components/SceneViewer\"\n        ]\n    },\n    ssr: false\n});\nfunction ScenePage({ initialCharacters, sceneId }) {\n    const [characters, setCharacters] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(initialCharacters);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{\n        const updateCharacters = async ()=>{\n            try {\n                const updatedCharacters = await (0,_lib_api_characterApi__WEBPACK_IMPORTED_MODULE_3__.fetchCharacters)(sceneId);\n                setCharacters(updatedCharacters);\n            } catch (error) {\n                console.error(\"Failed to update characters:\", error);\n            }\n        };\n        const interval = setInterval(updateCharacters, 30000);\n        return ()=>clearInterval(interval);\n    }, [\n        sceneId\n    ]);\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        style: {\n            width: \"100vw\",\n            height: \"100vh\",\n            overflow: \"hidden\"\n        },\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(SceneViewer, {\n            characters: characters,\n            sceneId: sceneId\n        }, void 0, false, {\n            fileName: \"/home/runner/3d4-1/pages/[scene].tsx\",\n            lineNumber: 36,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"/home/runner/3d4-1/pages/[scene].tsx\",\n        lineNumber: 35,\n        columnNumber: 5\n    }, this);\n}\nconst getStaticPaths = async ()=>{\n    return {\n        paths: [\n            {\n                params: {\n                    scene: \"main\"\n                }\n            }\n        ],\n        fallback: false\n    };\n};\nconst getStaticProps = async ({ params })=>{\n    const sceneId = params?.scene;\n    try {\n        const initialCharacters = await (0,_lib_api_characterApi__WEBPACK_IMPORTED_MODULE_3__.fetchCharacters)(sceneId);\n        return {\n            props: {\n                initialCharacters,\n                sceneId\n            },\n            revalidate: 60\n        };\n    } catch (error) {\n        return {\n            notFound: true\n        };\n    }\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9bc2NlbmVdLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7OztBQUU0QztBQUNUO0FBRXVCO0FBRTFELE1BQU1JLGNBQWNGLG1EQUFPQSxDQUFDLElBQU0seVBBQU87Ozs7OztJQUN2Q0csS0FBSzs7QUFRUSxTQUFTQyxVQUFVLEVBQUVDLGlCQUFpQixFQUFFQyxPQUFPLEVBQWtCO0lBQzlFLE1BQU0sQ0FBQ0MsWUFBWUMsY0FBYyxHQUFHVCwrQ0FBUUEsQ0FBQ007SUFFN0NQLGdEQUFTQSxDQUFDO1FBQ1IsTUFBTVcsbUJBQW1CO1lBQ3ZCLElBQUk7Z0JBQ0YsTUFBTUMsb0JBQW9CLE1BQU1ULHNFQUFlQSxDQUFDSztnQkFDaERFLGNBQWNFO1lBQ2hCLEVBQUUsT0FBT0MsT0FBTztnQkFDZEMsUUFBUUQsS0FBSyxDQUFDLGdDQUFnQ0E7WUFDaEQ7UUFDRjtRQUVBLE1BQU1FLFdBQVdDLFlBQVlMLGtCQUFrQjtRQUMvQyxPQUFPLElBQU1NLGNBQWNGO0lBQzdCLEdBQUc7UUFBQ1A7S0FBUTtJQUVaLHFCQUNFLDhEQUFDVTtRQUFJQyxPQUFPO1lBQUVDLE9BQU87WUFBU0MsUUFBUTtZQUFTQyxVQUFVO1FBQVM7a0JBQ2hFLDRFQUFDbEI7WUFDQ0ssWUFBWUE7WUFDWkQsU0FBU0E7Ozs7Ozs7Ozs7O0FBSWpCO0FBRU8sTUFBTWUsaUJBQWlDO0lBQzVDLE9BQU87UUFDTEMsT0FBTztZQUNMO2dCQUFFQyxRQUFRO29CQUFFQyxPQUFPO2dCQUFPO1lBQUU7U0FDN0I7UUFDREMsVUFBVTtJQUNaO0FBQ0YsRUFBRTtBQUVLLE1BQU1DLGlCQUFpRCxPQUFPLEVBQUVILE1BQU0sRUFBRTtJQUM3RSxNQUFNakIsVUFBVWlCLFFBQVFDO0lBRXhCLElBQUk7UUFDRixNQUFNbkIsb0JBQW9CLE1BQU1KLHNFQUFlQSxDQUFDSztRQUNoRCxPQUFPO1lBQ0xxQixPQUFPO2dCQUNMdEI7Z0JBQ0FDO1lBQ0Y7WUFDQXNCLFlBQVk7UUFDZDtJQUNGLEVBQUUsT0FBT2pCLE9BQU87UUFDZCxPQUFPO1lBQ0xrQixVQUFVO1FBQ1o7SUFDRjtBQUNGLEVBQUUiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8zZC1vZmZpY2Utdmlld2VyLy4vcGFnZXMvW3NjZW5lXS50c3g/OGRiYiJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCB7IEdldFN0YXRpY1Byb3BzLCBHZXRTdGF0aWNQYXRocyB9IGZyb20gJ25leHQnO1xuaW1wb3J0IHsgdXNlRWZmZWN0LCB1c2VTdGF0ZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBkeW5hbWljIGZyb20gJ25leHQvZHluYW1pYyc7XG5pbXBvcnQgeyBDaGFyYWN0ZXIgfSBmcm9tICcuLi9tb2RlbHMvY2hhcmFjdGVycyc7XG5pbXBvcnQgeyBmZXRjaENoYXJhY3RlcnMgfSBmcm9tICcuLi9saWIvYXBpL2NoYXJhY3RlckFwaSc7XG5cbmNvbnN0IFNjZW5lVmlld2VyID0gZHluYW1pYygoKSA9PiBpbXBvcnQoJy4uL2NvbXBvbmVudHMvU2NlbmVWaWV3ZXInKSwge1xuICBzc3I6IGZhbHNlXG59KTtcblxuaW50ZXJmYWNlIFNjZW5lUGFnZVByb3BzIHtcbiAgaW5pdGlhbENoYXJhY3RlcnM6IENoYXJhY3RlcltdO1xuICBzY2VuZUlkOiBzdHJpbmc7XG59XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFNjZW5lUGFnZSh7IGluaXRpYWxDaGFyYWN0ZXJzLCBzY2VuZUlkIH06IFNjZW5lUGFnZVByb3BzKSB7XG4gIGNvbnN0IFtjaGFyYWN0ZXJzLCBzZXRDaGFyYWN0ZXJzXSA9IHVzZVN0YXRlKGluaXRpYWxDaGFyYWN0ZXJzKTtcblxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGNvbnN0IHVwZGF0ZUNoYXJhY3RlcnMgPSBhc3luYyAoKSA9PiB7XG4gICAgICB0cnkge1xuICAgICAgICBjb25zdCB1cGRhdGVkQ2hhcmFjdGVycyA9IGF3YWl0IGZldGNoQ2hhcmFjdGVycyhzY2VuZUlkKTtcbiAgICAgICAgc2V0Q2hhcmFjdGVycyh1cGRhdGVkQ2hhcmFjdGVycyk7XG4gICAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgICBjb25zb2xlLmVycm9yKCdGYWlsZWQgdG8gdXBkYXRlIGNoYXJhY3RlcnM6JywgZXJyb3IpO1xuICAgICAgfVxuICAgIH07XG5cbiAgICBjb25zdCBpbnRlcnZhbCA9IHNldEludGVydmFsKHVwZGF0ZUNoYXJhY3RlcnMsIDMwMDAwKTtcbiAgICByZXR1cm4gKCkgPT4gY2xlYXJJbnRlcnZhbChpbnRlcnZhbCk7XG4gIH0sIFtzY2VuZUlkXSk7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IHN0eWxlPXt7IHdpZHRoOiAnMTAwdncnLCBoZWlnaHQ6ICcxMDB2aCcsIG92ZXJmbG93OiAnaGlkZGVuJyB9fT5cbiAgICAgIDxTY2VuZVZpZXdlciBcbiAgICAgICAgY2hhcmFjdGVycz17Y2hhcmFjdGVyc31cbiAgICAgICAgc2NlbmVJZD17c2NlbmVJZH1cbiAgICAgIC8+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmV4cG9ydCBjb25zdCBnZXRTdGF0aWNQYXRoczogR2V0U3RhdGljUGF0aHMgPSBhc3luYyAoKSA9PiB7XG4gIHJldHVybiB7XG4gICAgcGF0aHM6IFtcbiAgICAgIHsgcGFyYW1zOiB7IHNjZW5lOiAnbWFpbicgfSB9XG4gICAgXSxcbiAgICBmYWxsYmFjazogZmFsc2VcbiAgfTtcbn07XG5cbmV4cG9ydCBjb25zdCBnZXRTdGF0aWNQcm9wczogR2V0U3RhdGljUHJvcHM8U2NlbmVQYWdlUHJvcHM+ID0gYXN5bmMgKHsgcGFyYW1zIH0pID0+IHtcbiAgY29uc3Qgc2NlbmVJZCA9IHBhcmFtcz8uc2NlbmUgYXMgc3RyaW5nO1xuXG4gIHRyeSB7XG4gICAgY29uc3QgaW5pdGlhbENoYXJhY3RlcnMgPSBhd2FpdCBmZXRjaENoYXJhY3RlcnMoc2NlbmVJZCk7XG4gICAgcmV0dXJuIHtcbiAgICAgIHByb3BzOiB7XG4gICAgICAgIGluaXRpYWxDaGFyYWN0ZXJzLFxuICAgICAgICBzY2VuZUlkLFxuICAgICAgfSxcbiAgICAgIHJldmFsaWRhdGU6IDYwXG4gICAgfTtcbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICByZXR1cm4ge1xuICAgICAgbm90Rm91bmQ6IHRydWVcbiAgICB9O1xuICB9XG59O1xuIl0sIm5hbWVzIjpbInVzZUVmZmVjdCIsInVzZVN0YXRlIiwiZHluYW1pYyIsImZldGNoQ2hhcmFjdGVycyIsIlNjZW5lVmlld2VyIiwic3NyIiwiU2NlbmVQYWdlIiwiaW5pdGlhbENoYXJhY3RlcnMiLCJzY2VuZUlkIiwiY2hhcmFjdGVycyIsInNldENoYXJhY3RlcnMiLCJ1cGRhdGVDaGFyYWN0ZXJzIiwidXBkYXRlZENoYXJhY3RlcnMiLCJlcnJvciIsImNvbnNvbGUiLCJpbnRlcnZhbCIsInNldEludGVydmFsIiwiY2xlYXJJbnRlcnZhbCIsImRpdiIsInN0eWxlIiwid2lkdGgiLCJoZWlnaHQiLCJvdmVyZmxvdyIsImdldFN0YXRpY1BhdGhzIiwicGF0aHMiLCJwYXJhbXMiLCJzY2VuZSIsImZhbGxiYWNrIiwiZ2V0U3RhdGljUHJvcHMiLCJwcm9wcyIsInJldmFsaWRhdGUiLCJub3RGb3VuZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/[scene].tsx\n");
 
 /***/ }),
 
@@ -110,6 +110,696 @@ module.exports = require("path");
 /***/ ((module) => {
 
 module.exports = import("@babylonjs/core");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Animations/animation.js":
+/*!**********************************************************!*\
+  !*** external "@babylonjs/core/Animations/animation.js" ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Animations/animation.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Animations/animationEvent.js":
+/*!***************************************************************!*\
+  !*** external "@babylonjs/core/Animations/animationEvent.js" ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Animations/animationEvent.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Animations/animationGroup.js":
+/*!***************************************************************!*\
+  !*** external "@babylonjs/core/Animations/animationGroup.js" ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Animations/animationGroup.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Animations/animationKey.js":
+/*!*************************************************************!*\
+  !*** external "@babylonjs/core/Animations/animationKey.js" ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Animations/animationKey.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Audio/sound.js":
+/*!*************************************************!*\
+  !*** external "@babylonjs/core/Audio/sound.js" ***!
+  \*************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Audio/sound.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Audio/weightedsound.js":
+/*!*********************************************************!*\
+  !*** external "@babylonjs/core/Audio/weightedsound.js" ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Audio/weightedsound.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Bones/bone.js":
+/*!************************************************!*\
+  !*** external "@babylonjs/core/Bones/bone.js" ***!
+  \************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Bones/bone.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Bones/skeleton.js":
+/*!****************************************************!*\
+  !*** external "@babylonjs/core/Bones/skeleton.js" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Bones/skeleton.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Buffers/buffer.js":
+/*!****************************************************!*\
+  !*** external "@babylonjs/core/Buffers/buffer.js" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Buffers/buffer.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Cameras/camera.js":
+/*!****************************************************!*\
+  !*** external "@babylonjs/core/Cameras/camera.js" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Cameras/camera.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Cameras/freeCamera.js":
+/*!********************************************************!*\
+  !*** external "@babylonjs/core/Cameras/freeCamera.js" ***!
+  \********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Cameras/freeCamera.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Culling/boundingInfo.js":
+/*!**********************************************************!*\
+  !*** external "@babylonjs/core/Culling/boundingInfo.js" ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Culling/boundingInfo.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Engines/constants.js":
+/*!*******************************************************!*\
+  !*** external "@babylonjs/core/Engines/constants.js" ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Engines/constants.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Data/Math/flowGraphMathBlocks.js":
+/*!************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Data/Math/flowGraphMathBlocks.js" ***!
+  \************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Data/Math/flowGraphMathBlocks.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Data/flowGraphGetPropertyBlock.js":
+/*!*************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Data/flowGraphGetPropertyBlock.js" ***!
+  \*************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Data/flowGraphGetPropertyBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Data/flowGraphGetVariableBlock.js":
+/*!*************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Data/flowGraphGetVariableBlock.js" ***!
+  \*************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Data/flowGraphGetVariableBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Event/flowGraphReceiveCustomEventBlock.js":
+/*!*********************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Event/flowGraphReceiveCustomEventBlock.js" ***!
+  \*********************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Event/flowGraphReceiveCustomEventBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Event/flowGraphSceneReadyEventBlock.js":
+/*!******************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Event/flowGraphSceneReadyEventBlock.js" ***!
+  \******************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Event/flowGraphSceneReadyEventBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Event/flowGraphSceneTickEventBlock.js":
+/*!*****************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Event/flowGraphSceneTickEventBlock.js" ***!
+  \*****************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Event/flowGraphSceneTickEventBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphDoNBlock.js":
+/*!**********************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphDoNBlock.js" ***!
+  \**********************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphDoNBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphSequenceBlock.js":
+/*!***************************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphSequenceBlock.js" ***!
+  \***************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphSequenceBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphTimerBlock.js":
+/*!************************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphTimerBlock.js" ***!
+  \************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphTimerBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphWhileLoopBlock.js":
+/*!****************************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphWhileLoopBlock.js" ***!
+  \****************************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/ControlFlow/flowGraphWhileLoopBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphConsoleLogBlock.js":
+/*!*****************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphConsoleLogBlock.js" ***!
+  \*****************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphConsoleLogBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSendCustomEventBlock.js":
+/*!**********************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSendCustomEventBlock.js" ***!
+  \**********************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSendCustomEventBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSetPropertyBlock.js":
+/*!******************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSetPropertyBlock.js" ***!
+  \******************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSetPropertyBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSetVariableBlock.js":
+/*!******************************************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSetVariableBlock.js" ***!
+  \******************************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/Blocks/Execution/flowGraphSetVariableBlock.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/flowGraph.js":
+/*!*********************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/flowGraph.js" ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/flowGraph.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/flowGraphConnection.js":
+/*!*******************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/flowGraphConnection.js" ***!
+  \*******************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/flowGraphConnection.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/FlowGraph/flowGraphCoordinator.js":
+/*!********************************************************************!*\
+  !*** external "@babylonjs/core/FlowGraph/flowGraphCoordinator.js" ***!
+  \********************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/FlowGraph/flowGraphCoordinator.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Lights/directionalLight.js":
+/*!*************************************************************!*\
+  !*** external "@babylonjs/core/Lights/directionalLight.js" ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Lights/directionalLight.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Lights/hemisphericLight.js":
+/*!*************************************************************!*\
+  !*** external "@babylonjs/core/Lights/hemisphericLight.js" ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Lights/hemisphericLight.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Lights/light.js":
+/*!**************************************************!*\
+  !*** external "@babylonjs/core/Lights/light.js" ***!
+  \**************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Lights/light.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Lights/pointLight.js":
+/*!*******************************************************!*\
+  !*** external "@babylonjs/core/Lights/pointLight.js" ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Lights/pointLight.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Lights/spotLight.js":
+/*!******************************************************!*\
+  !*** external "@babylonjs/core/Lights/spotLight.js" ***!
+  \******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Lights/spotLight.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Loading/sceneLoader.js":
+/*!*********************************************************!*\
+  !*** external "@babylonjs/core/Loading/sceneLoader.js" ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Loading/sceneLoader.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/PBR/pbrMaterial.js":
+/*!***************************************************************!*\
+  !*** external "@babylonjs/core/Materials/PBR/pbrMaterial.js" ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/PBR/pbrMaterial.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/Textures/rawCubeTexture.js":
+/*!***********************************************************************!*\
+  !*** external "@babylonjs/core/Materials/Textures/rawCubeTexture.js" ***!
+  \***********************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/Textures/rawCubeTexture.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/Textures/renderTargetTexture.js":
+/*!****************************************************************************!*\
+  !*** external "@babylonjs/core/Materials/Textures/renderTargetTexture.js" ***!
+  \****************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/Textures/renderTargetTexture.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/Textures/texture.js":
+/*!****************************************************************!*\
+  !*** external "@babylonjs/core/Materials/Textures/texture.js" ***!
+  \****************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/Textures/texture.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/effect.js":
+/*!******************************************************!*\
+  !*** external "@babylonjs/core/Materials/effect.js" ***!
+  \******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/effect.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/material.js":
+/*!********************************************************!*\
+  !*** external "@babylonjs/core/Materials/material.js" ***!
+  \********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/material.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/multiMaterial.js":
+/*!*************************************************************!*\
+  !*** external "@babylonjs/core/Materials/multiMaterial.js" ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/multiMaterial.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/shaderMaterial.js":
+/*!**************************************************************!*\
+  !*** external "@babylonjs/core/Materials/shaderMaterial.js" ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/shaderMaterial.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Materials/standardMaterial.js":
+/*!****************************************************************!*\
+  !*** external "@babylonjs/core/Materials/standardMaterial.js" ***!
+  \****************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Materials/standardMaterial.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Maths/math.color.js":
+/*!******************************************************!*\
+  !*** external "@babylonjs/core/Maths/math.color.js" ***!
+  \******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Maths/math.color.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Maths/math.scalar.js":
+/*!*******************************************************!*\
+  !*** external "@babylonjs/core/Maths/math.scalar.js" ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Maths/math.scalar.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Maths/math.vector.js":
+/*!*******************************************************!*\
+  !*** external "@babylonjs/core/Maths/math.vector.js" ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Maths/math.vector.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Maths/sphericalPolynomial.js":
+/*!***************************************************************!*\
+  !*** external "@babylonjs/core/Maths/sphericalPolynomial.js" ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Maths/sphericalPolynomial.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/Compression/dracoCompression.js":
+/*!*************************************************************************!*\
+  !*** external "@babylonjs/core/Meshes/Compression/dracoCompression.js" ***!
+  \*************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/Compression/dracoCompression.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/Compression/meshoptCompression.js":
+/*!***************************************************************************!*\
+  !*** external "@babylonjs/core/Meshes/Compression/meshoptCompression.js" ***!
+  \***************************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/Compression/meshoptCompression.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/abstractMesh.js":
+/*!*********************************************************!*\
+  !*** external "@babylonjs/core/Meshes/abstractMesh.js" ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/abstractMesh.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/geometry.js":
+/*!*****************************************************!*\
+  !*** external "@babylonjs/core/Meshes/geometry.js" ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/geometry.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/mesh.js":
+/*!*************************************************!*\
+  !*** external "@babylonjs/core/Meshes/mesh.js" ***!
+  \*************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/mesh.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/mesh.vertexData.js":
+/*!************************************************************!*\
+  !*** external "@babylonjs/core/Meshes/mesh.vertexData.js" ***!
+  \************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/mesh.vertexData.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/subMesh.js":
+/*!****************************************************!*\
+  !*** external "@babylonjs/core/Meshes/subMesh.js" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/subMesh.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/thinInstanceMesh.js":
+/*!*************************************************************!*\
+  !*** external "@babylonjs/core/Meshes/thinInstanceMesh.js" ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/thinInstanceMesh.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Meshes/transformNode.js":
+/*!**********************************************************!*\
+  !*** external "@babylonjs/core/Meshes/transformNode.js" ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Meshes/transformNode.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/dataReader.js":
+/*!*****************************************************!*\
+  !*** external "@babylonjs/core/Misc/dataReader.js" ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/dataReader.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/deferred.js":
+/*!***************************************************!*\
+  !*** external "@babylonjs/core/Misc/deferred.js" ***!
+  \***************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/deferred.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/error.js":
+/*!************************************************!*\
+  !*** external "@babylonjs/core/Misc/error.js" ***!
+  \************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/error.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/fileTools.js":
+/*!****************************************************!*\
+  !*** external "@babylonjs/core/Misc/fileTools.js" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/fileTools.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/guid.js":
+/*!***********************************************!*\
+  !*** external "@babylonjs/core/Misc/guid.js" ***!
+  \***********************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/guid.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/logger.js":
+/*!*************************************************!*\
+  !*** external "@babylonjs/core/Misc/logger.js" ***!
+  \*************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/logger.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/observable.js":
+/*!*****************************************************!*\
+  !*** external "@babylonjs/core/Misc/observable.js" ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/observable.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Misc/tools.js":
+/*!************************************************!*\
+  !*** external "@babylonjs/core/Misc/tools.js" ***!
+  \************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Misc/tools.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Morph/morphTarget.js":
+/*!*******************************************************!*\
+  !*** external "@babylonjs/core/Morph/morphTarget.js" ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Morph/morphTarget.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/Morph/morphTargetManager.js":
+/*!**************************************************************!*\
+  !*** external "@babylonjs/core/Morph/morphTargetManager.js" ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/Morph/morphTargetManager.js");;
+
+/***/ }),
+
+/***/ "@babylonjs/core/assetContainer.js":
+/*!****************************************************!*\
+  !*** external "@babylonjs/core/assetContainer.js" ***!
+  \****************************************************/
+/***/ ((module) => {
+
+module.exports = import("@babylonjs/core/assetContainer.js");;
 
 /***/ })
 
