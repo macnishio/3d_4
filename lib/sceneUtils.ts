@@ -69,8 +69,8 @@ export const setupMeshes = async (scene: Scene, characters: any[]) => {
   
   // Load furniture models
   try {
-    const tableResult = await SceneLoader.ImportMeshAsync("", "./", "table.glb", scene);
-    const chairResult = await SceneLoader.ImportMeshAsync("", "./", "chair.glb", scene);
+    const tableResult = await SceneLoader.ImportMeshAsync("", "", "/table.glb", scene);
+    const chairResult = await SceneLoader.ImportMeshAsync("", "", "/chair.glb", scene);
     
     // Position and scale the models
     if (tableResult.meshes[0]) {
