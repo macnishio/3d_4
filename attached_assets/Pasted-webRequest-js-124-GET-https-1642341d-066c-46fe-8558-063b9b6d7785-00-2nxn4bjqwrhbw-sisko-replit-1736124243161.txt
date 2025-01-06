@@ -1,0 +1,52 @@
+webRequest.js:124     GET https://1642341d-066c-46fe-8558-063b9b6d7785-00-2nxn4bjqwrhbw.sisko.replit.dev/attached_assets/table.glb 404 (Not Found)
+send @ webRequest.js:124
+retryLoop @ fileTools.js:529
+requestFile @ fileTools.js:531
+RequestFile @ fileTools.js:565
+LoadFile @ fileTools.js:388
+_loadFile @ scene.js:4396
+_loadFile @ glTFFileLoader.js:602
+loadFile @ glTFFileLoader.js:439
+manifestChecked @ sceneLoader.js:213
+Database @ database.js:44
+_Engines_engine_js__WEBPACK_IMPORTED_MODULE_3__.Engine.OfflineProviderFactory @ database.js:8
+_LoadData @ sceneLoader.js:231
+ImportMesh @ sceneLoader.js:379
+eval @ sceneLoader.js:421
+ImportMeshAsync @ sceneLoader.js:420
+setupMeshes @ sceneUtils.ts:72
+initScene @ useSceneSetup.ts:30
+eval @ useSceneSetup.ts:39
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+eval @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
+hydration-error-info.ts:72 Error loading GLB models: RuntimeError: Unable to load from attached_assets/table.glb: Not Found
+    at errorHandler (sceneLoader.js:349:1)
+    at errorCallback (sceneLoader.js:206:1)
+    at eval (fileTools.js:392:1)
+    at XMLHttpRequest.onReadyStateChange (fileTools.js:524:1)
+console.error @ hydration-error-info.ts:72
+window.console.error @ setup-hydration-warning.ts:21
+setupMeshes @ sceneUtils.ts:89
+await in setupMeshes (async)
+initScene @ useSceneSetup.ts:30
+eval @ useSceneSetup.ts:39
+commitHookEffectListMount @ react-dom.development.js:23189
+commitPassiveMountOnFiber @ react-dom.development.js:24965
+commitPassiveMountEffects_complete @ react-dom.development.js:24930
+commitPassiveMountEffects_begin @ react-dom.development.js:24917
+commitPassiveMountEffects @ react-dom.development.js:24905
+flushPassiveEffectsImpl @ react-dom.development.js:27078
+flushPassiveEffects @ react-dom.development.js:27023
+eval @ react-dom.development.js:26808
+workLoop @ scheduler.development.js:266
+flushWork @ scheduler.development.js:239
+performWorkUntilDeadline @ scheduler.development.js:533
